@@ -1,0 +1,21 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-778
+END=12653
+title=handle dropdowns Dropdown with select
+[CHAPTER]
+TIMEBASE=1/1000
+START=11410
+END=43838
+title=handle dropdowns Dropdown without select
+[CHAPTER]
+TIMEBASE=1/1000
+START=73235
+END=82776
+title=handle dropdowns  Auto suggest Dropdown 
+[CHAPTER]
+TIMEBASE=1/1000
+START=-7920
+END=98210
+title=handle dropdowns  Auto suggest Dropdown 
