@@ -1,7 +1,7 @@
 // const { describe } = require("mocha");
 
 
-describe('CssLocators',()=>{
+// describe('CssLocators',()=>{
 
     // it("test1",()=>{
     //     cy.visit("https://www.flipkart.com")
@@ -20,10 +20,10 @@ describe('CssLocators',()=>{
           cy.contains("button","Sign").should("contain","Sign Up")
 
 
-          if( cy.contains("button","Sign").should("contain","Sign Up")==){
+          if( cy.contains("button","Sign").should("contain","Sign Up")){
 
           }
         })
       })
 
-})
+//})
