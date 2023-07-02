@@ -15,9 +15,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "install packages"
-          command: npm install
-      - run:
           name: "Say hello"
           command: "echo Hello, World!"    
       - run:
