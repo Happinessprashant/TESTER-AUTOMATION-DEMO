@@ -36,10 +36,10 @@ describe("testHookFramworks",()=>{
         const homePage = new HomePage();
         
         cy.log("this.data", JSON.stringify(this.data));
-        cy.visit(Cypress.env("url"));
+        // cy.visit(Cypress.env("url"));
 
         
-        // cy.visit("https://rahulshettyacademy.com/angularpractice/");
+        cy.visit("https://rahulshettyacademy.com/angularpractice/");
         
         homePage.getEditBox().type(this.data.name);
        homePage.getGender().select(this.data.gender);
@@ -50,8 +50,8 @@ describe("testHookFramworks",()=>{
         const homePage = new HomePage();
         cy.log("this.data", JSON.stringify(this.data));
 
-        // cy.visit("https://rahulshettyacademy.com/angularpractice/");
-        cy.visit(Cypress.env("url"));
+        cy.visit("https://rahulshettyacademy.com/angularpractice/");
+        // cy.visit(Cypress.env("url"));
         
      //   // cy.get('input[name="name"]:nth-child(2)').type(this.data.name);
       //  // cy.get('#exampleFormControlSelect1').select(this.data.gender);

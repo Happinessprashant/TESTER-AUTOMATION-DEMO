@@ -1,7 +1,7 @@
 // const { describe } = require("mocha");
 
 
-describe('CssLocators',()=>{
+// describe('CssLocators',()=>{
 
     // it("test1",()=>{
     //     cy.visit("https://www.flipkart.com")
@@ -12,6 +12,9 @@ describe('CssLocators',()=>{
     //     cy.get(".lighter").contains("T-Shirts")
     // }
     // )
+
+    // #check
+
     describe('The Home Page', () => {
         it('successfully loads', () => {
           cy.visit('http://localhost:3000/') // change URL to match your dev URL
@@ -20,10 +23,10 @@ describe('CssLocators',()=>{
           cy.contains("button","Sign").should("contain","Sign Up")
 
 
-          if( cy.contains("button","Sign").should("contain","Sign Up")==){
+          // if( cy.contains("button","Sign").should("contain","Sign Up")){
 
-          }
+          // }
         })
       })
 
-})
+//})
