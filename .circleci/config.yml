@@ -60,30 +60,54 @@
 #       - test-code
 
 
-version: 2.1
+# version: 2.1
 
+# orbs:
+#   node: circleci/node@5.1.0
+
+# jobs:
+#   build:
+#     docker:
+#       - image: cimg/base:stable
+#     steps:
+#       - checkout
+#       - node/install:
+#           install-yarn: true
+#           node-version: '14'
+#       - run: npm install
+#       - run: npm build
+#       - run: npm test
+#       - run:
+#           name: "execute test"
+#           command: npm run cy:execute
+
+
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build
+
+
+version: 2.1
 orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  build:
+  build-and-test:
     docker:
-      - image: cimg/base:stable
+      - image: cypress/base:14.17.0
     steps:
       - checkout
-      - node/install:
-          install-yarn: true
-          node-version: '14'
-      - run: npm install
-      - run: npm build
-      - run: npm test
       - run:
-          name: "execute test"
-          command: npm run cy:execute
-
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Run Cypress tests
+          command: npx cypress run
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build-and-test
