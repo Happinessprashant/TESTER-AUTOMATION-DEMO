@@ -101,7 +101,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: npm install
       - run:
           name: Run Cypress tests
           command: npx cypress run
