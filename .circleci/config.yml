@@ -14,12 +14,19 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - checkout
+      # - run:
+      #     name: "install packages"
+      #     command: npm install
       - run:
           name: "Say hello"
           command: "echo Hello, World!"    
       - run:
           name: "execute test"
-          command: npn run cy:execute
+          command: npm run cy:execute
+          
+      # - run:
+      #     name: "execute test"
+      #     command: npx cy:run
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
