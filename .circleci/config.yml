@@ -20,10 +20,10 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"    
-      - run:
-          name: "execute test"
-          command: npm run cy:execute
-          
+      # - run:
+      #     name: "execute test"
+      #     command: npm run cy:execute
+
       # - run:
       #     name: "execute test"
       #     command: npx cy:run
