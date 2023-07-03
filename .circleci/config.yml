@@ -124,8 +124,8 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@1.32.1
-  node: circleci/node@4.1.0
+  cypress: cypress-io/cypress@12.14.0
+  node: circleci/node@5.1.0
 
 jobs:
   build-and-test:
