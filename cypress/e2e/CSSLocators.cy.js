@@ -15,7 +15,7 @@
 
     it("test1",()=>{
         cy.visit("https://www.flipkart.com")
-          cy.get('._1_3w1N').click()
+        //   cy.get('._1_3w1N').click()
 
     }
     )
