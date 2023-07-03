@@ -139,7 +139,7 @@ jobs:
           command: npx cypress run
       - run:
           name: Run cloud
-          command: npx cypress run
+          command: cy:cloud
 
 workflows:
   version: 2
