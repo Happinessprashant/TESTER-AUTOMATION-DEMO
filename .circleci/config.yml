@@ -90,19 +90,50 @@
 
 # // completed
 
+# Sucessfull
+
+# version: 2.1
+# orbs:
+#   node: circleci/node@5.1.0
+
+# jobs:
+#   build-and-test:
+#     docker:
+#       - image: cypress/base:18.16.0
+#     working_directory: ~/repo
+#     resource_class: large
+#     steps:
+#       - checkout
+#       - run:
+#           name: Install dependencies
+#           command: npm install
+#       - run:
+#           name: Run Cypress tests
+#           command: npx cypress run
+
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build-and-test
+
+
+
+
 
 version: 2.1
+
 orbs:
-  node: circleci/node@5.1.0
+  cypress: cypress-io/cypress@1.32.1
+  node: circleci/node@4.1.0
 
 jobs:
   build-and-test:
-    docker:
-      - image: cypress/base:18.16.0
-    working_directory: ~/repo
-    resource_class: large
+    executor: node/default
     steps:
       - checkout
+      - node/install-packages
+      - cypress/install
       - run:
           name: Install dependencies
           command: npm install
@@ -112,30 +143,6 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  build-and-test:
     jobs:
       - build-and-test
-
-# version: 2.1
-
-# jobs:
-#   build:
-#     docker:
-#       - image: circleci/node:14
-#     steps:
-#       - checkout
-#       - run:
-#           name: Install dependencies
-#           command: npm install
-#       # - run:
-#       #     name: Build project
-#       #     command: npm run build
-#       - run:
-#           name: Run tests
-#           command: npx cypress run
-
-# workflows:
-#   version: 2
-#   build-and-test:
-#     jobs:
-#       - build
