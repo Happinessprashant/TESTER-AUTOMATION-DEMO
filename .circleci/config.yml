@@ -144,14 +144,14 @@
 #     jobs:
 #       - build-and-test
 
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@3
-workflows:
-  test:
-    jobs:
-      - cypress/run:
-          cypress-command: npm run  cy:execute
+# version: 2.1
+# orbs:
+#   cypress: cypress-io/cypress@3
+# workflows:
+#   test:
+#     jobs:
+#       - cypress/run:
+#           cypress-command: npm run  cy:execute
 
 
 
