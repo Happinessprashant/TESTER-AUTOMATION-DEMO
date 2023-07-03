@@ -146,11 +146,9 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@3.1.2
+  cypress: cypress-io/cypress@3
 workflows:
-  build:
+  test:
     jobs:
       - cypress/run:
-          start-command: 'npm run start'
-          cypress-command: 'npx cypress run --parallel --record --group all tests'
-          
+          cypress-command: npm run  cy:execute
