@@ -151,13 +151,14 @@ orbs:
 
 jobs:
   build-and-test:
-    executor: node/default
+    docker:
+      - image: cypress/base:18.16.0
     steps:
       - checkout
       - node/install-packages
-      - run:
-          name: Install libnss3
-          command: sudo apt-get update && sudo apt-get install -y libnss3
+      # - run:
+      #     name: Install libnss3
+      #     command: sudo apt-get update && sudo apt-get install -y libnss3
       - run:
           name: Install Cypress dependencies
           command: npx cypress install
