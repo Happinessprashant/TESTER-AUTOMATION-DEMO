@@ -88,30 +88,64 @@
 #     jobs:
 #       - build
 
+# // completed
+# version: 2.1
+# orbs:
+#   node: circleci/node@5.1.0
+
+# jobs:
+#   build-and-test:
+#     docker:
+#       # - image: cypress/base:14.17.0
+#       - image: cypress/base:16.13.0
+#       # - image:  circleci/node:16-browsers
+#     working_directory: ~/repo
+#       # - resource_class: large
+#     steps:
+#       - checkout
+#       - run:
+#           name: Install dependencies
+#           command: npm install
+#       - run:
+#           name: Run Cypress tests
+#           command: npx cypress run
+
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build-and-test
+
 
 version: 2.1
 orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  build-and-test:
-    docker:
-      # - image: cypress/base:14.17.0
-      - image: cypress/base:16.13.0
-      # - image:  circleci/node:16-browsers
-    working_directory: ~/repo
-      # - resource_class: large
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run Cypress tests
-          command: npx cypress run
+  # build-and-test:
+  #   docker:
+  #     - image: cimg/node:<< `parameters.node-version` >>
+     
+  #   steps:
+  #     - checkout
+  #     - node/install-packages
+  #     # - run:
+  #     #     name: Install dependencies
+  #     #     command: npm install
+  #     - run:
+  #         name: Run Cypress tests
+  #         command: npx cypress run
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-and-test
+      - node/run:
+          npm-run: npx cy:execute
+      - node/test:
+          requires:
+            -node/run
+          matrix:
+            parameters:
+                version: ['17.4']
+
