@@ -121,10 +121,33 @@
 
 
 
+# version: 2.1
+
+# orbs:
+#   node:  circleci/node@5.1.0
+
+# jobs:
+#   build-and-test:
+#     executor: node/default
+#     steps:
+#       - checkout
+#       - node/install-packages
+#       - run:
+#           name: Install libnss3
+#           command: sudo apt-get update && sudo apt-get install -y libnss3
+#       - run:
+#           name: Run tests
+#           command: npx cypress run
+
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build-and-test
 version: 2.1
 
 orbs:
-  node:  circleci/node@5.1.0
+  node: circleci/node@5.1.0
 
 jobs:
   build-and-test:
@@ -135,6 +158,9 @@ jobs:
       - run:
           name: Install libnss3
           command: sudo apt-get update && sudo apt-get install -y libnss3
+      - run:
+          name: Install Cypress dependencies
+          command: npx cypress install
       - run:
           name: Run tests
           command: npx cypress run
