@@ -122,27 +122,30 @@
 
 
 
-# version: 2.1
+version: 2.1
 
-# orbs:
-#   node: circleci/node@5.1.0
+orbs:
+  node: circleci/node@5.1.0
 
-# jobs:
-#   build-and-test:
-#     docker:
-#       - image: cypress/base:18.16.0
-#     steps:
-#       - checkout
-#       - node/install-packages
-#       - run:
-#           name: Run tests
-#           command: npx cypress run
+jobs:
+  build-and-test:
+    docker:
+      - image: cypress/base:18.16.0
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Run tests
+          command: npx cypress run
+      - run:
+          name: Run cloud
+          command: npx cypress run
 
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build-and-test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build-and-test
 
 # version: 2.1
 # orbs:
@@ -158,33 +161,33 @@
 
 
 
-version: '2.1'
-orbs:
-  cypress: cypress-io/cypress@3.1.0
-jobs:
-  install-and-persist:
-    executor: cypress/default
-    steps:
-      - cypress/install
-      - persist_to_workspace:
-          paths:
-            - .cache/Cypress
-            - project
-          root: ~/
-  run-tests-in-parallel:
-    executor: cypress/default
-    parallelism: 8
-    steps:
-      - attach_workspace:
-          at: ~/
-      - cypress/run-tests:
-          cypress-command: npx cypress run  --parallel --record
-workflows:
-  use-my-orb:
-    jobs:
-      - install-and-persist:
-          name: Install & Persist To Workspace
-      - run-tests-in-parallel:
-          name: Run Tests in Parallel
-          requires:
-            - Install & Persist To Workspace
+# version: '2.1'
+# orbs:
+#   cypress: cypress-io/cypress@3.1.0
+# jobs:
+#   install-and-persist:
+#     executor: cypress/default
+#     steps:
+#       - cypress/install
+#       - persist_to_workspace:
+#           paths:
+#             - .cache/Cypress
+#             - project
+#           root: ~/
+#   run-tests-in-parallel:
+#     executor: cypress/default
+#     parallelism: 8
+#     steps:
+#       - attach_workspace:
+#           at: ~/
+#       - cypress/run-tests:
+#           cypress-command: npx cypress run  --parallel --record
+# workflows:
+#   use-my-orb:
+#     jobs:
+#       - install-and-persist:
+#           name: Install & Persist To Workspace
+#       - run-tests-in-parallel:
+#           name: Run Tests in Parallel
+#           requires:
+#             - Install & Persist To Workspace
