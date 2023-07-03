@@ -122,19 +122,19 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  # build-and-test:
-  #   docker:
-  #     - image: cimg/node:<< `parameters.node-version` >>
+  build-and-test:
+    docker:
+      - image: cypress/base:16.13.0
      
-  #   steps:
-  #     - checkout
-  #     - node/install-packages
-  #     # - run:
-  #     #     name: Install dependencies
-  #     #     command: npm install
-  #     - run:
-  #         name: Run Cypress tests
-  #         command: npx cypress run
+    steps:
+      - checkout
+      # - node/install-packages
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run Cypress tests
+          command: npx cypress run
 
 workflows:
   version: 2
@@ -148,4 +148,4 @@ workflows:
           matrix:
             parameters:
                 version: ['17.4']
-
+      - build-and-test
