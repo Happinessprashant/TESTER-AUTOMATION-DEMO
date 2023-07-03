@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   projectId: 'sq11n6',
-  
+  reporter: 'mochawesome',
     "env": {
       "shell": "powershell.exe"
     }

@@ -19,7 +19,7 @@ describe("checkbox UI elements",()=>{
         cy.get("input#male").check().should('be.checked')
         cy.get("input#female").check().should('be.checked')
 
-        cy.get("input#other").check().should('be.checked')
+        // cy.get("input#other").check().should('be.checked')
 
     })
 

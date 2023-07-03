@@ -6,63 +6,63 @@ import "cypress-iframe"
 
 describe("test",()=>{
 
-    // it("test1", ()=>{
-    //     // cy.visit("https://quclickacademy.com/practice.php") 
-    //     cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
-    //     // cy.get("#alerbtn").click()
-    //     // cy.get('[value="confirm"]').click()
-    //     cy.on("window:alert",(str)=>{
-    //         expect(str).to.equal("hello , share practice page and share your knowledge")
-    //     })
+    it("test1", ()=>{
+        // cy.visit("https://quclickacademy.com/practice.php") 
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
+        // cy.get("#alerbtn").click()
+        // cy.get('[value="confirm"]').click()
+        cy.on("window:alert",(str)=>{
+            expect(str).to.equal("hello , share practice page and share your knowledge")
+        })
 
-    //     cy.get("#opentab").invoke("removeAttr","target").click()
+        cy.get("#opentab").invoke("removeAttr","target").click()
 
 
-    //     // cy.url("https://rahulshettyacademy.com/AutomationPractice/").should("include",'quclickacademy')
-    //     // cy.go("back")
+        // cy.url("https://rahulshettyacademy.com/AutomationPractice/").should("include",'quclickacademy')
+        // cy.go("back")
 
-    // })
+    })
 
-    //     it("test2", ()=>{
-    //         // cy.visit("https://quclickacademy.com/practice.php") 
-    //         cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
+        it("test2", ()=>{
+            // cy.visit("https://quclickacademy.com/practice.php") 
+            cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
             
-    //         cy.get("tr td:nth-child(2)").each(($el ,index , $list)=>{
+            cy.get("tr td:nth-child(2)").each(($el ,index , $list)=>{
 
-    //             const text = $el.text()
-    //             if(text.includes("Python")){
+                const text = $el.text()
+                if(text.includes("Python")){
 
-    //                 cy.get("tr td:nth-child(2)").eq(index).next().then(function(price){
-    //                 {
-    //                     const priceText = price.text()
-    //                     expect(priceText ).to.equal("25")
-    //                 }
-    //                 })
+                    cy.get("tr td:nth-child(2)").eq(index).next().then(function(price){
+                    {
+                        const priceText = price.text()
+                        expect(priceText ).to.equal("25")
+                    }
+                    })
 
-    //             }
-    //         })
-    //     })
+                }
+            })
+        })
 
-        // it("test3", ()=>{
-        //     // cy.visit("https://quclickacademy.com/practice.php") 
-        //     cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
+        it("test3", ()=>{
+            // cy.visit("https://quclickacademy.com/practice.php") 
+            cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
         
 
-        //         // cy.get('div.mouse-hover-content').invoke("show")
-        //         cy.contains("Top").click({force:true})
-        //         cy.url().should("include","top")
-        // })
+                // cy.get('div.mouse-hover-content').invoke("show")
+                cy.contains("Top").click({force:true})
+                cy.url().should("include","top")
+        })
 
-        // it("test4", ()=>{
-        //     cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
+        it("test4", ()=>{
+            cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
             
-        //     cy.get("#opentab").then(function(e1){
-        //         const url=e1.prop("href")
-        //         cy.log("url",url)
-        //         cy.visit(url) 
+            cy.get("#opentab").then(function(e1){
+                const url=e1.prop("href")
+                cy.log("url",url)
+                cy.visit(url) 
 
-        //     })
-        // })
+            })
+        })
 
         // it("test5", ()=>{
 
@@ -113,13 +113,14 @@ describe("test",()=>{
         // })
 
 
-        it("test9",()=>{
-            cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
+        // it("test9",()=>{
+        //     cy.visit("https://rahulshettyacademy.com/AutomationPractice/") 
 
-            cy.frameLoaded("#courses-iframe")
+        //     cy.frameLoaded("#courses-iframe")
+        //     // cy.iframe().get('#show-textbox')
+           
+        //     cy.iframe().find("a[href*='mentorship']").eq(0).click()
+        //     cy.iframe().find("h1[class*='pricing-title']").should("be.eq",2 )
+        // })
 
-            cy.iframe().find("a[href*='mentorship']").eq(0).click()
-            cy.iframe().find("h1[class*='pricing-title']").should("be.eq",2 )
-        })
-
-})
+}) 
