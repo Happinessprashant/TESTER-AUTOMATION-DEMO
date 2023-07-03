@@ -118,6 +118,7 @@
 #       - build-and-test
 
 
+
 version: 2.1
 
 orbs:
@@ -130,8 +131,11 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+          name: Install Xvfb
+          command: sudo apt-get update && sudo apt-get install -y xvfb
+      - run:
           name: Run tests
-          command:  npx cypress run
+          command: npx cypress run
 
 workflows:
   version: 2
