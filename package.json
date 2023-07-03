@@ -3,21 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- 
-  
-    "scripts": {
-      "start": "my-server -p 3030 --https",
-      "cy:install":"npm cypress install",
-      "cy:run": "cypress open",
-      "cy:execute": "npx cypress run",
-      "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https-get://localhost:3030 cy:run"
-    },
-  
+  "scripts": {
+    "start": "my-server -p 3030 --https",
+    "cy:install": "npm cypress install",
+    "cy:run": "cypress open",
+    "cy:execute": "npx cypress run",
+    "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https-get://localhost:3030 cy:run"
+  },
   "author": "prashant",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.16.0",
     "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
   }
 }

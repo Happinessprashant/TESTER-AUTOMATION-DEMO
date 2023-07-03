@@ -1,5 +1,5 @@
- const {it} =require("mocha")
- const cypress = require("cypress")
+//  const {it} =require("mocha")
+//  const cypress = require("cypress")
 
 describe("Xpath" ,()=>{
     it("find no of products"  ,()=>{
