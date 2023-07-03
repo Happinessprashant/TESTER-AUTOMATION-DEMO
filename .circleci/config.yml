@@ -98,7 +98,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: cypress/base:16.13.0
+      - image: cypress/base:18.16.0
     working_directory: ~/repo
     resource_class: large
     steps:
