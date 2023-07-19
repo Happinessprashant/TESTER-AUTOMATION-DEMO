@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-07-19T10:45:17.247Z",
-    "end": "2023-07-19T10:45:27.790Z",
-    "duration": 10543,
+    "start": "2023-07-19T11:47:53.350Z",
+    "end": "2023-07-19T11:48:16.505Z",
+    "duration": 23155,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ae12e272-83dc-495e-a61a-d7a6d37c0596",
+      "uuid": "efb5d052-9533-4311-8ae5-43b88fad8772",
       "title": "",
       "fullFile": "cypress\\e2e\\expath.cy.js",
       "file": "cypress\\e2e\\expath.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8b1ec525-8ef7-467b-b2b9-1be6e0d2ff72",
+          "uuid": "f9240eb3-38dd-4d9a-9b26-57f275b8b463",
           "title": "Xpath",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "find no of products",
               "fullTitle": "Xpath find no of products",
               "timedOut": null,
-              "duration": 6604,
+              "duration": 14006,
               "state": "passed",
-              "speed": "medium",
+              "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.visit('https://www.flipkart.com');\nit('finds list items', () => {\n  cy.xpath('//ul[@class=\"todo-list\"]//li').should('have.length', 3);\n});",
               "err": {},
-              "uuid": "b79b691a-8ecb-4f6b-b979-e064ec04a815",
-              "parentUUID": "8b1ec525-8ef7-467b-b2b9-1be6e0d2ff72",
+              "uuid": "a0e0e83d-250d-4890-86df-558cfbe21b04",
+              "parentUUID": "f9240eb3-38dd-4d9a-9b26-57f275b8b463",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b79b691a-8ecb-4f6b-b979-e064ec04a815"
+            "a0e0e83d-250d-4890-86df-558cfbe21b04"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6604,
+          "duration": 14006,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
