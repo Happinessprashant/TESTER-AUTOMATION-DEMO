@@ -90,10 +90,10 @@ workflows:
     jobs:
       - build-and-test:
 
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only: 
-                  - main
-                  - prashant
+      # - schedule:
+      #     cron: "0 * * * *"
+      #     filters:
+      #       branches:
+      #         only: 
+      #             - main
+      #             - prashant
