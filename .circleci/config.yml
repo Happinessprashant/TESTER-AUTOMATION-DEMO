@@ -89,13 +89,11 @@ workflows:
   build_and_test:
     jobs:
       - build-and-test:
-          # filters:
-          #   branches:
-          #     only:
-          #       - main 
 
       - schedule:
           cron: "0 * * * *"
           filters:
             branches:
-              only: main
+              only: 
+                  - main
+                  - prashant
