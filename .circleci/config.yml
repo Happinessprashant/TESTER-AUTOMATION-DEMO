@@ -92,22 +92,10 @@ workflows:
           filters:
             branches:
               only:
-                - main  # Adjust the branch if needed
+                - main 
 
-workflows:
-  version: 2
-  my_workflow:
-    jobs:
-      - build-and-test
-      - my_hourly_job:
+      - schedule:
+          cron: "0 * * * *"
           filters:
             branches:
-              only:
-                - main
-          triggers:
-            - schedule:
-                cron: "0 * * * *"
-      - my_daily_job:
-          triggers:
-            - schedule:
-                cron: "0 0 * * *"
+              only: main
