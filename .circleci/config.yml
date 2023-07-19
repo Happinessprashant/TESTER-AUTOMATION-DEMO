@@ -172,6 +172,16 @@ workflows:
     jobs:
       - build-and-test
 
+      - my_hourly_job:
+          filters:
+            branches:
+              only:
+                - main  # Adjust the branch if needed
+      - my_daily_job:
+          triggers:
+            - schedule:
+                cron: "0 0 * * *"
+
 # version: 2.1
 # orbs:
 #   cypress: cypress-io/cypress@3
