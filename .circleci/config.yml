@@ -126,7 +126,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
-
+  slack: circleci/slack@4.10.1
 jobs:
   build-and-test:
     docker:
@@ -140,6 +140,31 @@ jobs:
       - run:
           name: Run cloud
           command:  npx cypress run --record --key d1b0fde7-627e-4cf5-8075-db57d29a3d21
+          #Here, to start some changes
+      - run:
+          name: Run Cypress tests and generate report
+          command: npm run test:report
+
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - cypress/reports
+      - slack/notify:
+          event: pass
+          channel: "#general"   # Replace this with the desired channel or user
+          template: success_tagged_deploy_1
+          attach_workspace:
+            at: /tmp/workspace
+      - slack/notify:
+          event: fail
+          mentions: "p-x2u3774.slack.com"  # Mention a specific user
+          channel: "p"    # Replace this with the desired channel or user
+          template: basic_fail_1
+          attach_workspace:
+            at: /tmp/workspace
+      # - slack:
+      #     message: "Cypress tests complete. ${status} tests ran, ${failed} tests failed."
+      #     channel: "#cypress"
 
 workflows:
   version: 2
