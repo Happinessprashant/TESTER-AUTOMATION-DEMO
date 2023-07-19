@@ -8,17 +8,31 @@
     "cy:install": "npm cypress install",
     "cy:run": "cypress open",
     "cy:execute": "npx cypress run",
+    "cy:cloud": "npx cypress run --record --key d1b0fde7-627e-4cf5-8075-db57d29a3d21",
+    "cy:cloud5": "cross-env npx cypress run  CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY  ",
+    "cy:c": " cypress run --record $CYPRESS_RECORD_KEY",
+    "cy:cloud9": " dotenv -e .env cross-env  CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY  cypress run --record --key $CYPRESS_RECORD_KEY  ",
+    "cy:cloud4": " dotenv -e .env cross-env  CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY cypress run --record  ",
+    "cy:cloud10": "dotenv -e .env cross-env CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY cypress run --record  -k $CYPRESS_RECORD_KEY",
+    "cy:cloud11": "dotenv -e .env cross-env cypress run  CYPRESS_RECORD_KEY",
+    "cy:cloudal2": "dotenv cypress run --record --key  $CYPRESS_RECORD_KEY",
+    "test": "cypress run --spec 'cypress/integration/**/*.feature' --reporter mochawesome",
+    "cy:cloud6": "npx dotenv -e .env cross-env CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY  cypress run --record --key $CYPRESS_RECORD_KEY",
+    "cy:cloud7": " dotenv  .env cross-env CYPRESS_RECORD_KEY=$CYPRESS_RECORD_KEY  cypress run --record --key $CYPRESS_RECORD_KEY",
     "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https-get://localhost:3030 cy:run"
   },
-  "author": "prashant",
+  "author": "Prashant",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.16.0",
+    "cross-env": "^7.0.3",
+    "cypress": "^12.17.1",
     "cypress-iframe": "^1.0.1",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.3.1",
+    "mochawesome": "^7.1.3"
   },
   "dependencies": {
-    "mocha": "^10.2.0",
-    "mochawesome": "^7.1.3"
+    "dotenv-cli": "^7.2.1",
+    "mocha": "^10.2.0"
   }
 }

@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-07-19T10:45:17.247Z",
+    "end": "2023-07-19T10:45:27.790Z",
+    "duration": 10543,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ae12e272-83dc-495e-a61a-d7a6d37c0596",
+      "title": "",
+      "fullFile": "cypress\\e2e\\expath.cy.js",
+      "file": "cypress\\e2e\\expath.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8b1ec525-8ef7-467b-b2b9-1be6e0d2ff72",
+          "title": "Xpath",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "find no of products",
+              "fullTitle": "Xpath find no of products",
+              "timedOut": null,
+              "duration": 6604,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.flipkart.com');\nit('finds list items', () => {\n  cy.xpath('//ul[@class=\"todo-list\"]//li').should('have.length', 3);\n});",
+              "err": {},
+              "uuid": "b79b691a-8ecb-4f6b-b979-e064ec04a815",
+              "parentUUID": "8b1ec525-8ef7-467b-b2b9-1be6e0d2ff72",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b79b691a-8ecb-4f6b-b979-e064ec04a815"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6604,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
