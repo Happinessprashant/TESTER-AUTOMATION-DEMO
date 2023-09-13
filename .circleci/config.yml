@@ -61,6 +61,8 @@
 #             - schedule:
 #                 cron: "0 0 * * *"
 #
+
+
 #version: 2.1
 #
 #orbs:
@@ -89,15 +91,17 @@
 #  build_and_test:
 #    jobs:
 #      - build-and-test:
+#          -main
 #
 #workflows:
 #  version: 2
 #  build_and_test:
 #    jobs:
 #      - build-and-test:
-#    triggers:
-#      - schedule:
-#          cron: "0 0-23 * * *"
+#      triggers:
+#        - schedule:
+#            cron: "0 0-23 * * *"
+
 
 # version: 2.1
 
@@ -145,12 +149,15 @@ orbs:
   slack: circleci/slack@4.10.1
 
 jobs:
-  build-and-test:
+  build-and-test-job:
     docker:
       - image: cypress/base:18.16.0
+    resource_class: large # Specify the resource class here
     steps:
       - checkout
-      - node/install-packages
+      - run:
+          name: Install Node.js packages
+          command: npm install
       - run:
           name: Run tests
           command: npx cypress run
@@ -175,16 +182,12 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-and-test:
-          filters:
-            branches:
-              only:
-                - main
-
+      - build-and-test-job
+    triggers:
       - schedule:
           cron: "0 * * * *"
           filters:
             branches:
-              only: main
-          job: scheduled-job
+              only:
+                - main
 
