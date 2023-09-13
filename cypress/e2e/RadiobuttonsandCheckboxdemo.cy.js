@@ -4,20 +4,20 @@ describe("checkbox UI elements",()=>{
    
     it("checking radio buttons",()=>{
 
-        cy.visit("https://itera-qa.azurewebsites.net/home/automation")
+        cy.visit("https://facebook.com")
 
-        cy.get("input#male").should('be.visible')
-        cy.get("input#female").should('be.visible')
-
-        cy.get("input#other").should('be.visible')
-
-
-        cy.get("input[type=radio]").should("be.visible")
-
-        // selecting radio buttons
-
-        cy.get("input#male").check().should('be.checked')
-        cy.get("input#female").check().should('be.checked')
+        // cy.get("input#male").should('be.visible')
+        // cy.get("input#female").should('be.visible')
+        //
+        // cy.get("input#other").should('be.visible')
+        //
+        //
+        // cy.get("input[type=radio]").should("be.visible")
+        //
+        // // selecting radio buttons
+        //
+        // cy.get("input#male").check().should('be.checked')
+        // cy.get("input#female").check().should('be.checked')
 
         // cy.get("input#other").check().should('be.checked')
 

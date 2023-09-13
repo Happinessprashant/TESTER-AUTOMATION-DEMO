@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 1,
+    "suites": 0,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-07-19T11:47:53.350Z",
-    "end": "2023-07-19T11:48:16.505Z",
-    "duration": 23155,
+    "failures": 1,
+    "start": "2023-07-21T05:11:09.130Z",
+    "end": "2023-07-21T05:11:09.530Z",
+    "duration": 400,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,61 +18,46 @@
   },
   "results": [
     {
-      "uuid": "efb5d052-9533-4311-8ae5-43b88fad8772",
+      "uuid": "933e332b-69fd-44d2-b057-2d76044aff57",
       "title": "",
       "fullFile": "cypress\\e2e\\expath.cy.js",
       "file": "cypress\\e2e\\expath.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
-      "tests": [],
-      "suites": [
+      "tests": [
         {
-          "uuid": "f9240eb3-38dd-4d9a-9b26-57f275b8b463",
-          "title": "Xpath",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "find no of products",
-              "fullTitle": "Xpath find no of products",
-              "timedOut": null,
-              "duration": 14006,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.visit('https://www.flipkart.com');\nit('finds list items', () => {\n  cy.xpath('//ul[@class=\"todo-list\"]//li').should('have.length', 3);\n});",
-              "err": {},
-              "uuid": "a0e0e83d-250d-4890-86df-558cfbe21b04",
-              "parentUUID": "f9240eb3-38dd-4d9a-9b26-57f275b8b463",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "a0e0e83d-250d-4890-86df-558cfbe21b04"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 14006,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
+          "title": "An uncaught error was detected outside of a test",
+          "fullTitle": "An uncaught error was detected outside of a test",
+          "timedOut": null,
+          "duration": 276,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "throw err;",
+          "err": {
+            "message": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > process is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.",
+            "estack": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > process is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.\n    at ./node_modules/ci-info/index.js (webpack:///./node_modules/ci-info/index.js:5:0)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at ./node_modules/is-ci/index.js (webpack:///./node_modules/is-ci/index.js:3:17)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at Object.eval (webpack:///./node_modules/cypress/lib/util.js:12:13)\n    at ./node_modules/cypress/lib/util.js (http://localhost:62004/__cypress/tests?p=cypress\\support\\e2e.js:32867:30)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at Object.eval (webpack:///./node_modules/cypress/index.js:6:13)\n    at ./node_modules/cypress/index.js (http://localhost:62004/__cypress/tests?p=cypress\\support\\e2e.js:28704:30)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)",
+            "diff": null
+          },
+          "uuid": "6bf1d7bb-45fa-4eb9-96b3-8195315f0209",
+          "parentUUID": "933e332b-69fd-44d2-b057-2d76044aff57",
+          "isHook": false,
+          "skipped": false
         }
       ],
+      "suites": [],
       "passes": [],
-      "failures": [],
+      "failures": [
+        "6bf1d7bb-45fa-4eb9-96b3-8195315f0209"
+      ],
       "pending": [],
       "skipped": [],
-      "duration": 0,
+      "duration": 276,
       "root": true,
-      "rootEmpty": true,
+      "rootEmpty": false,
       "_timeout": 2000
     }
   ],
