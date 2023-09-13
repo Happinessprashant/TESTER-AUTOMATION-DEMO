@@ -142,6 +142,63 @@
 #             branches:
 #               only: main
 
+
+##Run code
+
+#version: 2.1
+#
+#orbs:
+#  node: circleci/node@5.1.0
+#  slack: circleci/slack@4.10.1
+#
+#jobs:
+#  build-and-test-job:
+#    docker:
+#      - image: cypress/base:18.16.0
+#    resource_class: large # Specify the resource class here
+#    steps:
+#      - checkout
+#      - run:
+#          name: Install Node.js packages
+#          command: npm install
+#      - run:
+#          name: Run tests
+#          command: npx cypress run
+#      - run:
+#          name: Run cloud
+#          command: npx cypress run --record --key d1b0fde7-627e-4cf5-8075-db57d29a3d21
+#      - run:
+#          name: Run Cypress tests and generate report
+#          command: npm run test:report
+#
+#  scheduled-job:
+#    docker:
+#      - image: cypress/base:18.16.0
+#    steps:
+#      - checkout
+#      - node/install-packages
+#      - run:
+#          name: Run scheduled tests
+#          command: npx cypress run --record --key YOUR_SCHEDULED_JOB_KEY
+#
+#workflows:
+#  version: 2
+#  build_and_test:
+#    jobs:
+#      - build-and-test-job
+#    triggers:
+#      - schedule:
+#          cron: "0 * * * *"
+#          filters:
+#            branches:
+#              only:
+#                - main
+
+
+##run code end
+
+
+
 version: 2.1
 
 orbs:
@@ -190,4 +247,8 @@ workflows:
             branches:
               only:
                 - main
+
+  each-test-push:
+    jobs:
+      - build-and-test-job
 
