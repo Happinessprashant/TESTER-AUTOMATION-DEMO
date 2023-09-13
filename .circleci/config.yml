@@ -103,16 +103,15 @@
 #            cron: "0 0-23 * * *"
 
 
-version: 2.1
 
-orbs:
-  node: circleci/node@5.1.0
-  slack: circleci/slack@4.10.1
+
+version: 2.1
 
 jobs:
   build-and-test-job:
     docker:
       - image: cypress/base:18.16.0
+    resource_class: large # Specify the resource class here
     steps:
       - checkout
       - node/install-packages
@@ -130,10 +129,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-and-test-job:
-        branches:
-          - main
-        triggers:
-          - schedule:
-              cron: "0 * * * *"
-
+      - build-and-test-job
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
