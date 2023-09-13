@@ -104,7 +104,6 @@
 
 
 
-
 version: 2.1
 
 jobs:
@@ -114,7 +113,9 @@ jobs:
     resource_class: large # Specify the resource class here
     steps:
       - checkout
-      - node/install-packages
+      - run:
+          name: Install Node.js packages
+          command: npm install
       - run:
           name: Run tests
           command: npx cypress run
