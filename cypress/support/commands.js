@@ -39,3 +39,9 @@
 
   })
 
+//   import { After } from 'cypress';
+
+//   After(() => {
+//     console.log('Test cases results:');
+//     console.log("Prashant",Cypress.results);
+//   })
