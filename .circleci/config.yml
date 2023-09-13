@@ -119,9 +119,6 @@ jobs:
       - run:
           name: Run cloud
           command: npx cypress run --record --key d1b0fde7-627e-4cf5-8075-db57d29a3d21
-      - run:
-          name: Run Cypress tests and generate report
-          command: npm run test:report
 
   schedule:
     cron: "0 * * * *"
