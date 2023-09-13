@@ -103,8 +103,11 @@
 #            cron: "0 0-23 * * *"
 
 
-
 version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  slack: circleci/slack@4.10.1
 
 jobs:
   build-and-test-job:
@@ -134,3 +137,7 @@ workflows:
     triggers:
       - schedule:
           cron: "0 * * * *"
+          filters:
+            branches:
+              only:
+                - main
