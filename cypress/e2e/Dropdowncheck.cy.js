@@ -41,12 +41,9 @@
        })
 
     it(" Auto suggest Dropdown ",()=>{
-
-
         cy.visit("https://www.wikipedia.org/")
-
        cy.get("#searchInput").type("Delhi")
-
+       cy.wait(2000)
         cy.get(".suggestion-title").contains("Delhi University").click()
 
        })
