@@ -24,24 +24,87 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+/// <reference types="Cypress"/>
+/// <reference types="cypress-xpath" />
+import "cypress-iframe";
 
- /// <reference types="Cypress"/>
- /// <reference types="cypress-xpath" />
- import 'cypress-iframe';
-
- Cypress.Commands.add('selectProduct', (productName) => { 
-    cy.get("h4.card-title").each(($el ,index , $list)=>{
-        if( $el.text().includes(productName)) {
-         cy.get("button.btn.btn-info").eq(index).click()
-        }
-    
-     })
-
-  })
+Cypress.Commands.add("selectProduct", (productName) => {
+  cy.get("h4.card-title").each(($el, index, $list) => {
+    if ($el.text().includes(productName)) {
+      cy.get("button.btn.btn-info").eq(index).click();
+    }
+  });
+});
 
 //   import { After } from 'cypress';
 
-//   After(() => {
-//     console.log('Test cases results:');
-//     console.log("Prashant",Cypress.results);
-//   })
+  afterEach(() => {
+    console.log('In afteEach ');
+  })
+
+const slackWebHookURL = Cypress.env("SLACK_WEBHOOK_URL");
+
+globalThis.errorMsgList = [];
+
+Cypress.on("test:after:run",  (test, runnable) => {
+  if (runnable.state === "failed") {
+    const msg = `Attention <!channel> :rotating_light: :rotating_light: Test is failing with error: ${runnable.err?.message} at scenario "${runnable.title}"!`;
+    globalThis.errorMsgList.push(msg);
+  }
+
+  globalThis.errorMsgList.forEach((element)=> {
+    console.log(`element == ${element}`);
+
+         cy.request({
+              method: "POST",
+              url: slackWebHookURL,
+              body: { "text": element },
+      }).then((response)=>{
+        console.log("response",JSON.stringify(response))
+        if (response.status !== 200) {
+             console.error("Failed to send message to Slack. Status code: ", response.status);
+           } else {
+          console.log("Message sent to Slack successfully.");
+        }
+      })
+  })
+});
+
+
+
+// globalThis.errorList = [];
+
+// Cypress.on('test:after:run', (test, runnable) => {
+
+//   console.log(`runnable == ${runnable.state}`);
+//   if (runnable.state === 'failed') {
+//     console.log("in cy.on")
+//     const slackMessage = {
+//       text: `Attention <!channel> :rotating_light: :rotating_light: Test is failing with error: ${runnable.err?.message} at scenario "${runnable.title}"!`
+//     }
+//     globalThis.errorList.push(slackMessage);
+//     console.log("slackMessage",slackMessage)
+//     cy.postToSlack(slackMessage)
+//   }
+//   console.log('globalThis.errorList1',globalThis.errorList)
+// });
+
+// Cypress.Commands.add('postToSlack', (message) => {
+  
+//   if (!slackWebHookURL) {
+//     console.log('The slackWebHookURL environment variable is not set.');
+//     return;
+//   }
+//   console.log('globalThis.errorList',globalThis.errorList)
+
+//   const requestOptions = {
+//     method: 'POST',
+//     url: slackWebHookURL,
+//     body: message,
+//   };
+
+  
+//   cy.request(requestOptions).then((response) => {
+//     console.log('Response from Slack:', response);
+//   });
+// });
