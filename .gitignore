@@ -4,3 +4,7 @@ node_modules/
 cypress/screenshots/
 cypress/videos
 mochawesome-report/assets
+.env
+**/.env
+Assertions.ts
+Actions.ts
