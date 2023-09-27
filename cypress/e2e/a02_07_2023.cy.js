@@ -23,13 +23,3 @@ describe("My test suite", () => {
       // expect(1).to.equal(2)
     })
 });
-
-
-// afterEach(() => {
-//   // Your test cleanup code here
-
-//   // Call cy.postToSlack to post messages to Slack
-//   // cy.postToSlack({
-//   //   text: 'Your custom message here',
-//   // });
-// });
