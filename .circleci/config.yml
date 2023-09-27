@@ -209,7 +209,10 @@ jobs:
   build-and-test-job:
     docker:
       - image: cypress/base:18.16.0
-    resource_class: large # Specify the resource class here
+    working_directory: ~/repo  
+    environment:
+      NODE_ENV:circleci
+    resource_class: large 
     steps:
       - checkout
       - run:
@@ -225,6 +228,9 @@ jobs:
   scheduled-job:
     docker:
       - image: cypress/base:18.16.0
+    environment:
+      NODE_ENV:circleci
+    resource_class: large  
     steps:
       - checkout
       - node/install-packages
