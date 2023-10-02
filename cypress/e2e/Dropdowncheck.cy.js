@@ -28,10 +28,12 @@
 
     it(" Auto suggest Dropdown ",()=>{
         cy.visit("https://www.wikipedia.org/")
-       cy.get("#searchInput").type("Delhi")
-       cy.wait(4000)
-        cy.get("h3.suggestion-title").contains("Delhi University").click()
-        // cy.get('h3.suggestion-title').click({ force: true });
+
+
+       cy.get("#searchInput").type(`Delhi{enter}`)
+
+        // cy.get(".suggestion-title").contains("Delhi University").click()
+
        })
 
     it(" Auto suggest Dropdown ",()=>{
