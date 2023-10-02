@@ -12,6 +12,8 @@ module.exports = defineConfig({
       "shell": "powershell.exe",
       CYPRESS_RECORD_KEY : process.env.CYPRESS_RECORD_KEY,
       SLACK_WEBHOOK_URL: process.env.SLACK_WEBHOOK_URL,
+      SLACK_TOKEN: process.env.SLACK_TOKEN,
+      SLACK_CHHINAL_ID: process.env.SLACK_CHHINAL_ID,
       CYPRESS_ENVIRONMENT: "local"
      
     },

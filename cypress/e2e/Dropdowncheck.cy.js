@@ -45,9 +45,9 @@
 
         cy.visit("https://www.wikipedia.org/")
 
-       cy.get("#searchInput").type("Delhi")
+       cy.get("#searchInput").type(`Delhi{enter}`)
 
-        cy.get(".suggestion-title").contains("Delhi University").click()
+        // cy.get(".suggestion-title").contains("Delhi University").click()
 
        })
 

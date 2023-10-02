@@ -27,6 +27,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.5",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@slack/web-api": "^6.9.0",
     "chai": "^4.3.8",
     "dotenv-cli": "^7.2.1",
     "mocha": "^10.2.0",
