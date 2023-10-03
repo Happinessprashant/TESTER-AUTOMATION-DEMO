@@ -12,8 +12,9 @@ const assert = chai.assert;
 describe("My test suite", () => {
     it("My test case", () => {
       cy.visit("www.google.com");
-      cy.wait(2000)
+      // cy.wait(2000)
       // expect(1).to.equal(2)
+      // cy.title().should('eq',"gogle")
         
       });
       it('verify title-negative!', () => {
