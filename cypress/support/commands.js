@@ -121,9 +121,9 @@ import {pushToSlack} from "./slack"
 
 const errorMsgList =  [];
 
-after(async ()=>{
+after( ()=>{
   console.log("in After block")
-  await pushToSlack(CHANNEL_ID,errorMsgList)
+   pushToSlack(CHANNEL_ID,errorMsgList)
   console.log("pj")
 })
 
