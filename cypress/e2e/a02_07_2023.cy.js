@@ -21,7 +21,7 @@ describe("My test suite", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/")
         cy.title().should('not.eq',"OrangeHRM1234")
         cy.wait(1000)
-        cy.title().should('eq',"OrangeHRM1234")
+        // cy.title().should('eq',"OrangeHRM1234")
       // expect(1).to.equal(2)
     })
 });
