@@ -47,7 +47,7 @@ export function pushToSlack(channelId, arrayOfFailedScenarios) {
                 thread_ts: threadId,
             };
             
-        await cy.request({
+        cy.request({
           method: 'POST',
           url: 'https://slack.com/api/chat.postMessage',
           headers: {
@@ -60,7 +60,5 @@ export function pushToSlack(channelId, arrayOfFailedScenarios) {
     } else {
       console.error('Error posting initial message to Slack:', response.body);
     }
-  }).catch((error) => {
-    console.error('Cypress request failed:', error);
-  });
+  })
 }
