@@ -123,8 +123,10 @@ const errorMsgList =  [];
 
 after( ()=>{
   console.log("in After block")
-  console.log("in After block errorMsgList",errorMsgList)
-  pushToSlack(CHANNEL_ID,errorMsgList)
+  console.log("in After block errorMsgList length====",errorMsgList.length)
+  if(errorMsgList.length>0){
+    pushToSlack(CHANNEL_ID,errorMsgList)
+  }
   console.log("pj")
 })
 
